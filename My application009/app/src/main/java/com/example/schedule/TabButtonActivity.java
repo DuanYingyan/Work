@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class TabButtonActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
     private TextView tv_tab_button; // 声明一个标签按钮对象
-    private TextView tv_tab_style_button; // 声明一个标签按钮对象
     private CheckBox ck_select; // 声明一个复选框对象
 
     @Override
@@ -20,10 +19,7 @@ public class TabButtonActivity extends AppCompatActivity implements View.OnClick
 
         // 从布局文件中获取名叫tv_tab_button的标签按钮
         tv_tab_button = findViewById(R.id.tv_tab_button);
-        tv_tab_style_button = findViewById(R.id.tv_tab_style_button);
-
         tv_tab_button.setOnClickListener(this);
-        tv_tab_style_button.setOnClickListener(this);
         // 从布局文件中获取名叫ck_select的复选框
         ck_select = findViewById(R.id.ck_select);
         // 给复选框ck_select设置勾选监听器
@@ -35,13 +31,12 @@ public class TabButtonActivity extends AppCompatActivity implements View.OnClick
         if (buttonView.getId() == R.id.ck_select) {
             // 设置标签按钮的选中状态
             tv_tab_button.setSelected(isChecked);
-            tv_tab_style_button.setSelected(isChecked);
         }
     }
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.tv_tab_button || v.getId() == R.id.tv_tab_style_button) {
+        if (v.getId() == R.id.tv_tab_button) {
             // 将复选框的状态置反
             ck_select.setChecked(!ck_select.isChecked());
         }
